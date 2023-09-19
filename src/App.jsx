@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import styled from "styled-components";
+import GlobaleStyle from "./styles/GlobalStyled";
+import Input from "./ui/Input";
+import Button from "./ui/Button";
+import Heading from "./ui/Heading";
+import Row from "./ui/Row";
 
-function App() {
-  const [count, setCount] = useState(0)
+const StyledApp = styled.div`
+  background-color: beige;
+  padding: 20px;
+`;
 
+const App = () => {
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <GlobaleStyle />
+      <StyledApp>
+        <Row>
+        <Row type="horizontal">
+        <Heading type="h1">the wild bear</Heading>
+          <div>
+            
+            <Button variations='primary' sizes='medium'>check in</Button>
+            <Button variations='secoundary' sizes='medium'>check out</Button>
+          </div>
+        </Row>
+        <Row>
+          <Heading as="h3">the wild bear</Heading>
+          <form>
+            <Input type="number" placeholder="number of guest" />
+            <Input type="number" placeholder="number of guest" />
+          </form>
+        </Row>
+        </Row>
+      </StyledApp>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
